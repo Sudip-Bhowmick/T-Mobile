@@ -1,0 +1,201 @@
+$pink: #e20074;
+$pinkbackground: #e2007433;
+$font: sans-serif;
+$panelcount: 7;
+$times: "Times New Roman", Times, serif;
+
+body {
+  margin: 0;
+  font-family: $font;
+  img {
+    max-width: 100%;
+  }
+  section {
+    height: 100vh;
+    background-size: 10% 14%;
+    background-image: linear-gradient(
+        to right,
+        $pinkbackground 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, $pinkbackground 1px, transparent 1px);
+  }
+  .pink {
+    color: $pink;
+  }
+}
+
+#page {
+  width: 100%;
+  height: 100%;
+  #inner-page {
+    width: percentage($panelcount);
+    height: 100%;
+  }
+}
+
+section {
+  height: auto;
+  width: calc(100% / #{$panelcount});
+  float: left;
+  position: relative;
+}
+
+// Preloader
+#preloader {
+  width: 100vw;
+  background-color: #fff;
+  background-image: none;
+  .start_logo {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    font-family: $times;
+    color: $pink;
+    font-size: 170px;
+    transform: translateX(-75px);
+    display: grid;
+    place-content: center;
+    height: 100vh;
+  }
+  .boxes {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: grid;
+    place-content: center;
+    grid-auto-flow: column;
+    width: 100%;
+    div {
+      opacity: 0;
+      width: 20px;
+      height: 18px;
+      background-color: $pink;
+      margin: 0 27px;
+      &:nth-child(1) {
+        animation: fadeIn 1s 1s forwards;
+      }
+      &:nth-child(2) {
+        animation: fadeIn 1s 1.5s forwards;
+      }
+      &:nth-child(3) {
+        animation: fadeIn 1s 2s forwards;
+      }
+      &:nth-child(4) {
+        animation: fadeIn 1s 2.5s forwards;
+      }
+    }
+  }
+}
+
+#second_screen {
+  height: 100vh;
+  .v_center {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8vw;
+    width: max-content;
+    p {
+      margin-top: 0;
+      font-size: 12px;
+    }
+  }
+  .alphabet_image {
+    font-size: 200vh;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    top: -130px;
+    right: 0px;
+    font-family: $times;
+    color: $pink;
+    background: url(img/t.jpg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+#third_screen {
+  height: 100vh;
+  .box_info {
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    height: 100%;
+    margin-left: 20vw;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 50px;
+    opacity: 0;
+    &.start {
+      animation: fadeIn 1s 0.3s forwards;
+    }
+    p {
+      margin-top: 0;
+      font-size: 12px;
+    }
+  }
+  .about_people {
+    width: inherit;
+    position: absolute;
+    right: 200px;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    height: 100%;
+    opacity: 0;
+    &.start {
+      animation: fadeIn 1s 0.3s forwards;
+    }
+    img {
+      border-radius: 20px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+#fourth_section {
+  .box_info {
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    height: 100%;
+    margin-left: 15vw;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 50px;
+    opacity: 0;
+    &.start {
+      animation: fadeIn 1s 0.3s forwards;
+    }
+  }
+}
+
+#fifth_section {
+  .box {
+    background-color: $pink;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1200px) {
+  body {
+    display: none;
+  }
+}
